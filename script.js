@@ -73,6 +73,5 @@ function clearCart() {
 
 // Initial render
 renderProducts();
-renderCartFromSession();
-renderCart()      
+renderCartFromSession();      
 });
