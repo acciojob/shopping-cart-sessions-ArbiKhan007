@@ -36,7 +36,7 @@ function renderCart(product) {
 }
 
 function renderCartFromSession() {
-  const stored = sessionStorage.getItem("cart_data");
+  const stored = sessionStorage.getItem("cart");
   const cartSessionData = stored ? JSON.parse(stored) : [];
 
   if (!Array.isArray(cartSessionData) || cartSessionData.length === 0) return;
@@ -55,7 +55,7 @@ function renderCartFromSession() {
 function addToCart(productId) {
 	console.log(cartData);
 	cartData.push(products[productId-1])
-	sessionStorage.setItem("cart_data", JSON.stringify(cartData));
+	sessionStorage.setItem("cart", JSON.stringify(cartData));
 	renderCart(cartData.at(-1))
 }
 
@@ -67,7 +67,7 @@ clearCartBtn.addEventListener("click", ()=>clearCart())
 function clearCart() {
 	cartData.length=0;
 	cartList.innerHTML=''
-	sessionStorage.setItem("cart_data", JSON.stringify(cartData))
+	sessionStorage.setItem("cart", JSON.stringify(cartData))
 }
 
 // Initial render
